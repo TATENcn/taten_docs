@@ -1,0 +1,15 @@
+# dependencies
+node_modules/
+
+# build output
+docs/.vitepress/dist/
+
+# cache
+docs\.vitepress\cache
+
+# system files
+.DS_Store
+
+# editor
+.vscode/
+.idea/
