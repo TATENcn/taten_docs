@@ -1,4 +1,4 @@
-name: Deploy VitePress site to Pages
+name: "Deploy to Github Pages"
 
 on:
   push:
@@ -10,43 +10,38 @@ permissions:
   pages: write
   id-token: write
 
-concurrency:
-  group: pages
-  cancel-in-progress: false
-
 jobs:
-  # 构建工作
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
         with:
-          fetch-depth: 0
-      - uses: oven-sh/setup-bun@v1
-      - name: Setup Node
-        uses: actions/setup-node@v6
-        with:
-          node-version: 20
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-      - name: Install dependencies
-        run: bun install
-      - name: Build with VitePress
+          bun-version: latest
+
+      - name: Install Dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Build Documents
         run: bun run docs:build
-      - name: Upload artifact
+
+      - name: Configure Github Pages
+        uses: actions/configure-pages@v3
+
+      - name: Upload Pages
         uses: actions/upload-pages-artifact@v3
         with:
-          path: docs/.vitepress/dist
+          path: docs/.vitepress
 
-  # 部署工作
   deploy:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    needs: build
     runs-on: ubuntu-latest
-    name: Deploy
+    needs: build
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
