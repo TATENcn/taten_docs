@@ -5,7 +5,7 @@ node_modules/
 docs/.vitepress/dist/
 
 # cache
-docs\.vitepress\cache
+docs/.vitepress/cache
 
 # system files
 .DS_Store
