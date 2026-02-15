@@ -1,4 +1,4 @@
-import { defineConfig } from 'vitepress'
+import { defineConfig } from "vitepress";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -7,44 +7,46 @@ export default defineConfig({
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
-      { text: '主页', link: '/' },
-      { text: '项目文档', link: '/projects' },
-      { text: '会议文件', link: '/meeting' },
-      { text: '规范文件', link: '/standards' }
+      { text: "主页", link: "/" },
+      { text: "项目文档", link: "/projects" },
+      { text: "会议文件", link: "/meeting" },
+      { text: "规范文件", link: "/standards" },
+      { text: "服务使用手册", link: "/services" },
     ],
 
     sidebar: [
       {
-        text: '简介',
+        text: "简介",
         items: [
-          { text: '关于我们', link: '/intro/about' },
-          { text: '成员信息', link: '/intro/members' }
-        ]
+          { text: "关于我们", link: "/intro/about" },
+          { text: "成员信息", link: "/intro/members" },
+        ],
       },
       {
-        text: '项目文档',
+        text: "项目文档",
         items: [
-          { text: 'TATEN-OJ', link: '/projects/taten-oj' },
-          { text: 'Aniday', link: '/projects/aniday' }
-        ]
+          { text: "TATEN-OJ", link: "/projects/taten-oj" },
+          { text: "Aniday", link: "/projects/aniday" },
+        ],
       },
       {
-        text: '会议文件',
-        items: [
-          { text: '2025-1-1 起点会议', link: '/meeting/2026-1-1.md' },
-        ]
+        text: "会议文件",
+        items: [{ text: "2025-1-1 起点会议", link: "/meeting/2026-1-1.md" }],
       },
       {
-        text: '规范文件',
+        text: "规范文件",
         items: [
-          { text: '颜色规范', link: '/standards/color.md' },
-          { text: 'Commit 信息规范', link: '/standards/commit.md' }
-        ]
-      }
+          { text: "颜色规范", link: "/standards/color.md" },
+          { text: "Commit 信息规范", link: "/standards/commit.md" },
+        ],
+      },
+      {
+        text: "服务使用手册",
+        collapsed: true,
+        items: [{ text: "内网穿透服务(frps)", link: "/services/frps.md" }],
+      },
     ],
 
-    socialLinks: [
-      { icon: 'github', link: 'https://github.com/TATENcn' }
-    ]
-  }
-})
+    socialLinks: [{ icon: "github", link: "https://github.com/TATENcn" }],
+  },
+});
