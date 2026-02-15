@@ -19,7 +19,9 @@ hero:
     - theme: alt
       text: 规范文件
       link: /standards/
-      
+    - theme: alt
+      text: 团队共享服务使用说明
+      link: /services/
 
 features:
   - title: 文档集中管理
