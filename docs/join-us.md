@@ -31,8 +31,8 @@
 
 ::: tip 如何申请
 目前我们支持以下两种方式（任选其一）：
+- [在 GitHub issus 提交申请 (推荐)](https://github.com/TATENcn/.github/issues/new?template=01_join_taten.yml)
 - [在腾讯问卷填写申请问卷](https://wj.qq.com/s2/25766356/765a/)
-- [在 GitHub 提交申请 (推荐)](https://github.com/TATENcn/repo/issues/new)
 :::
 
 <iframe id='idy_frame' height="100%" width="100%" src="https://wj.qq.com/s2/25766356/765a/" frameborder="0" style='min-height:650px' allowfullscreen sandbox="allow-same-origin allow-scripts allow-modals allow-downloads allow-forms allow-popups"></iframe>
