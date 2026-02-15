@@ -8,11 +8,8 @@ hero:
   tagline: 积跬步以至千里，汇小流以成江海
   actions:
     - theme: brand
-      text: 快速开始
-      link: /projects/taten-oj
-    - theme: alt
-      text: 了解团队
-      link: /intro/about
+      text: 加入我们
+      link: /join-us
 
 features:
   - title: 🚀 项目中心

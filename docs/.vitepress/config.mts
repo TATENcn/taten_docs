@@ -11,7 +11,6 @@ export default defineConfig({
     { 
       text: "团队", 
       items: [
-        { text: "关于我们", link: "/intro/about" },
         { text: "成员信息", link: "/intro/members" },
         { text: "加入我们", link: "/intro/join" }
       ]
