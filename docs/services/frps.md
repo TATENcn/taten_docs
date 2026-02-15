@@ -41,3 +41,57 @@ remotePort = 25565
 ```
 
 以上就是一个最基本的配置模版，上面的配置文件实现的功能是将本地的25565端口的Minecraft服务器穿透到服务器的25565端口，这样，其他设备可以通过服务器的25565端口访问本机的Minecraft服务器。实现联机的效果
+
+### 3. 启动frpc服务
+
+启动frpc服务，执行以下命令:
+
+```bash
+frpc -c frpc.toml
+```
+
+如果你的配置文件没有语法格式问题的话，就会出现绿色的INFO日志，表示frpc启动成功
+
+## 二、注册为系统服务
+
+### 1. Linux使用systemd
+
+#### (1) 创建service文件
+
+在这个目录`/etc/systemd/system`下创建`frpc.service`文件，内容如下
+
+```bash
+[Unit]
+Description = frp client
+After = network.target syslog.target
+Wants = network.target
+
+[Service]
+Type = simple
+ExecStart = /usr/local/bin/frpc -c /etc/frp/frpc.toml
+
+[Install]
+WantedBy = multi-user.target
+```
+
+#### (2) 安装frpc二进制文件
+
+执行命令`uname -m`获取设备架构信息。根据设备的架构，在Github上下载对应的frpc二进制文件，将下载的二进制文件解压到`/usr/local/bin/`目录下，并修改权限为755
+
+#### (3) 放置frpc.toml配置文件
+
+将frpc.toml配置文件放置在`/etc/frp/`目录下
+
+#### (4) 启动frpc服务
+
+执行命令`sudo systemctl daemon-reload`重载systemd服务
+
+执行命令`sudo systemctl start frpc`启动frpc服务
+
+执行命令`sudo systemctl status frpc`查看frpc服务状态
+
+执行命令`sudo systemctl enable frpc`设置frpc服务开机自启动
+
+### 2. Windows注册服务
+
+持续更新中...
